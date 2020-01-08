@@ -25,6 +25,8 @@ namespace Ejercicio1
         public MainPage()
         {
             this.InitializeComponent();
+               
         }
+
     }
 }
