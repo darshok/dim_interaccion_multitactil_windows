@@ -32,6 +32,17 @@ namespace DimMultitactilWindows
             double x = e.GetPosition(imageView).X;
             double y = e.GetPosition(imageView).Y;
             listView.Items.Add("Se ha pulsado en la posicion x: " + x + ", y la posicion y: " + y);
+            imageView.Opacity -= 0.1;
+        }
+
+        private void imageView_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            imageView.Opacity = 1.0;
+        }
+
+        private void imageView_Holding(object sender, HoldingRoutedEventArgs e)
+        {
+            listView.Items.Clear();
         }
     }
 }

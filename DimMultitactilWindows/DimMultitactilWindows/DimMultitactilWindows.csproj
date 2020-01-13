@@ -145,7 +145,11 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\poder.png" />
+    <Content Include="Assets\sabiduria.png" />
     <Content Include="Assets\tri-force-png-legend-of-zelda-triforce.png" />
+    <Content Include="Assets\triforce-the-legend-of-zelda.jpg" />
+    <Content Include="Assets\valor.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

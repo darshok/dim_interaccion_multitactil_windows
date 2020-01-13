@@ -9,6 +9,19 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Image x:Name="imageViewPoder" Source="/Assets/poder.png" 
+               Width="400" Height="300" 
+               ManipulationMode="Scale,Rotate,TranslateInertia" 
+               ManipulationDelta="imageViewPoder_ManipulationDelta" 
+               ImageOpened="ImagePoder_Opened" 
+               Margin="235,154,865,546">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <!--<RotateTransform x:Name="RotateTransform" />
+                    <ScaleTransform x:Name="ScaleTransform"/>-->
+                    <CompositeTransform x:Name="CompositeTransform"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Page>

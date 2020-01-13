@@ -9,6 +9,13 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-
+        <Image x:Name="imageView" Source="/Assets/tri-force-png-legend-of-zelda-triforce.png" Width="400" Height="300" ManipulationMode="Scale,Rotate" ManipulationDelta="imageView_ManipulationDelta" ImageOpened="Image_Opened">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform x:Name="RotateTransform" />
+                    <ScaleTransform x:Name="ScaleTransform"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </Page>

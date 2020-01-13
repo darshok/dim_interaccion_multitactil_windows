@@ -26,5 +26,20 @@ namespace DimMultitactilWindows
         {
             this.InitializeComponent();
         }
+        private void Image_Opened(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Image img = sender as Image;
+            ScaleTransform.CenterX = img.ActualWidth / 2;
+            ScaleTransform.CenterY = img.ActualHeight / 2;
+            RotateTransform.CenterX = img.ActualWidth / 2;
+            RotateTransform.CenterY = img.ActualHeight / 2;
+        }
+
+        private void imageView_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            this.RotateTransform.Angle += e.Delta.Rotation;
+            this.ScaleTransform.ScaleX *= e.Delta.Scale;
+            this.ScaleTransform.ScaleY *= e.Delta.Scale;
+        }
     }
 }
