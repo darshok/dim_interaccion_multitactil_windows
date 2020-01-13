@@ -30,20 +30,55 @@ namespace DimMultitactilWindows
         private void ImagePoder_Opened(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Image img = sender as Image;
-            CompositeTransform.CenterX = img.ActualWidth / 2;
-            CompositeTransform.CenterY = img.ActualHeight / 2;
-            //RotateTransform.CenterX = img.ActualWidth / 2;
-            //RotateTransform.CenterY = img.ActualHeight / 2;
+            CompositeTransformPoder.CenterX = img.ActualWidth / 2;
+            CompositeTransformPoder.CenterY = img.ActualHeight / 2;
         }
 
         private void imageViewPoder_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
         {
             FrameworkElement source = (FrameworkElement)e.OriginalSource;
-            var ct = new CompositeTransform();
-            ct.Rotation += e.Delta.Rotation;
-            ct.ScaleX *= e.Delta.Scale;
-            ct.ScaleY *= e.Delta.Scale;
-            source.RenderTransform = ct;
+            CompositeTransformPoder.Rotation += e.Delta.Rotation;
+            CompositeTransformPoder.ScaleX *= e.Delta.Scale;
+            CompositeTransformPoder.ScaleY *= e.Delta.Scale;
+            CompositeTransformPoder.TranslateX += e.Delta.Translation.X;
+            CompositeTransformPoder.TranslateY += e.Delta.Translation.Y;
+            source.RenderTransform = CompositeTransformPoder;
+        }
+
+        private void ImageSabiduria_Opened(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Image img = sender as Image;
+            CompositeTransformSabiduria.CenterX = img.ActualWidth / 2;
+            CompositeTransformSabiduria.CenterY = img.ActualHeight / 2;
+        }
+
+        private void imageViewSabiduria_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            FrameworkElement source = (FrameworkElement)e.OriginalSource;
+            CompositeTransformSabiduria.Rotation += e.Delta.Rotation;
+            CompositeTransformSabiduria.ScaleX *= e.Delta.Scale;
+            CompositeTransformSabiduria.ScaleY *= e.Delta.Scale;
+            CompositeTransformSabiduria.TranslateX += e.Delta.Translation.X;
+            CompositeTransformSabiduria.TranslateY += e.Delta.Translation.Y;
+            source.RenderTransform = CompositeTransformSabiduria;
+        }
+
+        private void ImageValor_Opened(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Image img = sender as Image;
+            CompositeTransformValor.CenterX = img.ActualWidth / 2;
+            CompositeTransformValor.CenterY = img.ActualHeight / 2;
+        }
+
+        private void imageViewValor_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            FrameworkElement source = (FrameworkElement)e.OriginalSource;
+            CompositeTransformValor.Rotation += e.Delta.Rotation;
+            CompositeTransformValor.ScaleX *= e.Delta.Scale;
+            CompositeTransformValor.ScaleY *= e.Delta.Scale;
+            CompositeTransformValor.TranslateX += e.Delta.Translation.X;
+            CompositeTransformValor.TranslateY += e.Delta.Translation.Y;
+            source.RenderTransform = CompositeTransformValor;
         }
     }
 }

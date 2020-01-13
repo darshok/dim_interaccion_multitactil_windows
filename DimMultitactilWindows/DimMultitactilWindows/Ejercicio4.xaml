@@ -9,17 +9,47 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <Image x:Name="imageViewPoder" Source="/Assets/poder.png" 
-               Width="400" Height="300" 
-               ManipulationMode="Scale,Rotate,TranslateInertia" 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="imageViewPoder" Grid.Column="0" Grid.Row="0"
+               Source="/Assets/poder.png" 
+               Width="200" Height="150" 
+               ManipulationMode="All" 
                ManipulationDelta="imageViewPoder_ManipulationDelta" 
-               ImageOpened="ImagePoder_Opened" 
-               Margin="235,154,865,546">
+               ImageOpened="ImagePoder_Opened">
             <Image.RenderTransform>
                 <TransformGroup>
-                    <!--<RotateTransform x:Name="RotateTransform" />
-                    <ScaleTransform x:Name="ScaleTransform"/>-->
-                    <CompositeTransform x:Name="CompositeTransform"/>
+                    <CompositeTransform x:Name="CompositeTransformPoder"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="imageViewSabiduria" Grid.Column="2" Grid.Row="0"
+               Source="/Assets/sabiduria.png" 
+               Width="200" Height="150" 
+               ManipulationMode="All" 
+               ManipulationDelta="imageViewSabiduria_ManipulationDelta" 
+               ImageOpened="ImageSabiduria_Opened">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <CompositeTransform x:Name="CompositeTransformSabiduria"/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
+        <Image x:Name="imageViewValor" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"
+               Source="/Assets/valor.png" 
+               Width="200" Height="150" 
+               ManipulationMode="All" 
+               ManipulationDelta="imageViewValor_ManipulationDelta" 
+               ImageOpened="ImageValor_Opened">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <CompositeTransform x:Name="CompositeTransformValor"/>
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
