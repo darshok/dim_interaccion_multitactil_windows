@@ -145,6 +145,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\ball.png" />
     <Content Include="Assets\poder.png" />
     <Content Include="Assets\sabiduria.png" />
     <Content Include="Assets\tri-force-png-legend-of-zelda-triforce.png" />
