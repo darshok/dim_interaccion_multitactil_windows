@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
+    <Grid x:Name="grid" DoubleTapped="grid_DoubleTapped" >
+        <Grid x:Name="innerGrid" BorderThickness="20,20,20,20" BorderBrush="White"/>
     </Grid>
 </Page>
