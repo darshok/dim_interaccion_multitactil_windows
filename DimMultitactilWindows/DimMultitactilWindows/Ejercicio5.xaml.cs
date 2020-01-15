@@ -23,25 +23,48 @@ namespace DimMultitactilWindows
     /// </summary>
     public sealed partial class Ejercicio5 : Page
     {
+        
+        CompositeTransform compositeTransform = new CompositeTransform();
+        List<Image> balls = new List<Image>();
         public Ejercicio5()
         {
             this.InitializeComponent();
         }
 
-        private void grid_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e) //poner fondo en el grid
+        private void grid_DoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
         {
-            double x = e.GetPosition(grid).X;
-            double y = e.GetPosition(grid).Y;
+            double x = e.GetPosition(innerGrid).X;
+            double y = e.GetPosition(innerGrid).Y;
 
             Image ball = new Image();
-            ball.Width = 200;
-            ball.Height = 200;
-            CompositeTransform compositeTransform = new CompositeTransform();
-            compositeTransform.TranslateX = x;
-            compositeTransform.TranslateY = y;
+            ball.Width = 70;
+            ball.Height = 70;
+            compositeTransform.TranslateX = x - grid.ActualWidth / 2;
+            compositeTransform.TranslateY = y - grid.ActualHeight / 2;
             ball.RenderTransform = compositeTransform;
-            BitmapImage bitmapImage = new BitmapImage(new Uri("/Assets/ball.png", UriKind.Relative));
+            BitmapImage bitmapImage = new BitmapImage(new Uri("ms-appx:///Assets/ball.png"));
             ball.Source = bitmapImage;
+
+            ball.ManipulationMode = ManipulationModes.All;
+            ball.ManipulationDelta += Image_ManipulationDelta;
+
+            balls.Add(ball);
+            innerGrid.Children.Add(ball);
+        }
+
+        private void Image_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            Image source = sender as Image;
+
+            compositeTransform.CenterX = source.ActualWidth / 2;
+            compositeTransform.CenterY = source.ActualHeight / 2;
+            compositeTransform.Rotation += e.Delta.Rotation;
+            compositeTransform.ScaleX *= e.Delta.Scale;
+            compositeTransform.ScaleY *= e.Delta.Scale;
+            compositeTransform.TranslateX += e.Delta.Translation.X;
+            compositeTransform.TranslateY += e.Delta.Translation.Y;
+
+            source.RenderTransform = compositeTransform;
         }
     }
 }

@@ -9,6 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid x:Name="grid" DoubleTapped="grid_DoubleTapped" >
-        <Grid x:Name="innerGrid" BorderThickness="20,20,20,20" BorderBrush="White"/>
+        <Grid x:Name="innerGrid" BorderThickness="20,20,20,20" BorderBrush="White" Background="Black">
+        </Grid>
     </Grid>
 </Page>
